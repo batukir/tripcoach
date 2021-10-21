@@ -1,0 +1,49 @@
+
+
+.home {
+  width: 100%;
+  height: 35vw;;
+
+}
+h1, h5{
+  padding-top: 100px;
+  text-align: center;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 33px;
+}
+h5{
+  padding-top: 0px;
+  font-size: 18px;
+}
+
+p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+}
+
+
+.submit {
+  margin: 0 auto;
+  color:black;
+  border-radius: 22px;
+  border-color: whitesmoke;
+  height: 50px;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.btn-primary{
+  width: 100%;
+  margin-top: -50px;
+}
+.text-small {
+  font-size: 0.9rem !important;
+}
+
+body {
+  background: linear-gradient(90deg, #0ABFBC 10%, #0a95bf 90%);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
