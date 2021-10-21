@@ -1,4 +1,4 @@
-import "../home.css";
+import "./home.css";
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
         backgroundImage: `url("/images/trip.jpeg")`,
         backgroundPosition: "center",
       }}
+      
     >
       <h1 class="header"> Trip Coach will find your next destination!</h1>
       <h5 class="header">
@@ -17,9 +18,9 @@ export default function Home() {
         <form>
           <div class="row">
             <div class="col-lg-7 mx-auto">
-              <div class="card shadow border-0 mb-5">
-                <div class="card-body p-6">
-                  <h2 class="h4 mb-1">Please select continent preferences</h2>
+            <div class="card shadow border-0 mb-5">
+                <div class="card-body p-5">
+                <h2 class="h4 mb-1">Please select continent preferences</h2>
                   <p class="small text-muted font-italic mb-4">
                     Which part of the world would you want to go?
                   </p>
