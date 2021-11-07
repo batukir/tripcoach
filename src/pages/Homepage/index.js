@@ -1,5 +1,6 @@
 import "./home.css";
-import React, { useState} from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Home() {
   const continents = [
@@ -44,6 +45,8 @@ export default function Home() {
     value: "",
   });
 
+  const history = useHistory();
+
   return (
     <div
       className="home"
@@ -63,13 +66,18 @@ export default function Home() {
             <div className="col-lg-7 mx-auto">
               <div className="card shadow border-0 mb-5">
                 <div className="card-body p-5">
-                  <h2 className="h4 mb-1">Please select continent preferences</h2>
+                  <h2 className="h4 mb-1">
+                    Please select continent preferences
+                  </h2>
                   <p className="small text-muted font-italic mb-4">
                     Which part of the world would you want to go?
                   </p>
                   <ul className="list-group">
                     {checkboxContinents.map((checkbox, index) => (
-                      <li className="list-group-item rounded-0" key={checkbox.value}>
+                      <li
+                        className="list-group-item rounded-0"
+                        key={checkbox.value}
+                      >
                         <div className="custom-control custom-checkbox">
                           <input
                             className="custom-control-input"
@@ -104,7 +112,10 @@ export default function Home() {
                   </p>
                   <ul className="list-group">
                     {checkboxPreferences.map((checkbox, index) => (
-                      <li className="list-group-item rounded-0" key={checkbox.value}>
+                      <li
+                        className="list-group-item rounded-0"
+                        key={checkbox.value}
+                      >
                         <div className="custom-control custom-checkbox">
                           <input
                             className="custom-control-input"
@@ -138,7 +149,10 @@ export default function Home() {
                   </p>
                   <ul className="list-group">
                     {selectedPeople.map((selected, index) => (
-                      <li className="list-group-item rounded-0 d-flex align-items-center justify-content-between" key={selected.value}>
+                      <li
+                        className="list-group-item rounded-0 d-flex align-items-center justify-content-between"
+                        key={selected.value}
+                      >
                         <div className="custom-control custom-radio">
                           <input
                             className="custom-control-input"
@@ -176,7 +190,10 @@ export default function Home() {
                   </p>
                   <ul className="list-group">
                     {selectedBudget.map((selected, index) => (
-                      <li className="list-group-item rounded-0 d-flex align-items-center justify-content-between" key={selected.value}>
+                      <li
+                        className="list-group-item rounded-0 d-flex align-items-center justify-content-between"
+                        key={selected.value}
+                      >
                         <div className="custom-control custom-radio">
                           <input
                             className="custom-control-input"
@@ -206,11 +223,17 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-              <input type="submit" className="btn btn-primary" />
-              {console.log(checkboxContinents)}
-              {console.log(checkboxPreferences)}
-              {console.log(peopleValue)}
-              {console.log(budgetValue)}
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => history.push("/mapview")}
+              >
+                {console.log(checkboxContinents)}
+                {console.log(checkboxPreferences)}
+                {console.log(peopleValue)}
+                {console.log(budgetValue)}
+                Submit
+              </button>
             </div>
           </div>
         </form>
