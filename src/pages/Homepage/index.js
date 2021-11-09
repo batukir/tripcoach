@@ -1,7 +1,6 @@
 import "./home.css";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-
 export default function Home() {
   const continents = [
     { value: "Europe", isChecked: false },
@@ -226,12 +225,13 @@ export default function Home() {
               <button
                 type="button"
                 className="btn btn-primary"
-                onClick={() => history.push("/mapview")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/mapview",
+                    state: { checkboxContinents, checkboxPreferences, peopleValue, budgetValue }
+                  })
+                }
               >
-                {console.log(checkboxContinents)}
-                {console.log(checkboxPreferences)}
-                {console.log(peopleValue)}
-                {console.log(budgetValue)}
                 Submit
               </button>
             </div>
