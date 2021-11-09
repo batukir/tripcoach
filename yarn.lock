@@ -11376,6 +11376,11 @@ worker-rpc@^0.1.0:
   dependencies:
     microevent.ts "~0.1.1"
 
+worldcities@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/worldcities/-/worldcities-0.1.7.tgz#c8530acd6420cc82909d5e804d1ee5159c547856"
+  integrity sha512-AdQNm/ydmYYi1fjNe60Y4hEKld+sxTCyfiXfmRQ3+8LhB2JD1ODLtYGzAMxQPd/VJxQE9sh5DN9dqv5L++VNxA==
+
 wrap-ansi@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-5.1.0.tgz#1fd1f67235d5b6d0fee781056001bfb694c03b09"
