@@ -1,8 +1,9 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Map as LeafletMap, GeoJSON, MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import React, { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import icon from "../../constants";
 import { useLocation } from "react-router-dom";
+import worldGeoJSON from 'geojson-world-map';
 
 const defaultCenter = [10.303418, 5.95223];
 const defaultZoom = 2;
@@ -10,7 +11,6 @@ const defaultZoom = 2;
 export default function MapView() {
   const location = useLocation();
   const WorldCities = require("worldcities");
-  const RandomCity = Math.floor(Math.random() * 50);
 
   const { checkboxContinents, checkboxPreferences, peopleValue, budgetValue } =
     location.state;
@@ -27,24 +27,51 @@ export default function MapView() {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   var cityList = [];
-
+  var amount = 0
   if (checkboxContinents[0].isChecked === true) {
     console.log(checkboxContinents[0]);
     const EU = WorldCities.getLargestCities("EU", 25);
     cityList.push(EU);
+    amount += 25
   }
   if (checkboxContinents[1].isChecked === true) {
     console.log(checkboxContinents[1]);
     const AS = WorldCities.getLargestCities("AS", 25);
     cityList.push(AS);
+    amount += 25
   }
-  cityList = cityList[0].concat(cityList[1]);
+  if (checkboxContinents[2].isChecked === true) {
+    console.log(checkboxContinents[2]);
+    const NA = WorldCities.getLargestCities("NA", 25);
+    cityList.push(NA);
+    amount += 25
+  }
+  if (checkboxContinents[3].isChecked === true) {
+    console.log(checkboxContinents[3]);
+    const SA = WorldCities.getLargestCities("SA", 25);
+    cityList.push(SA);
+    amount += 25
+  }
+  if (checkboxContinents[4].isChecked === true) {
+    console.log(checkboxContinents[4]);
+    const AF = WorldCities.getLargestCities("AF", 25);
+    cityList.push(AF);
+    amount += 25
+  }
+  if (checkboxContinents[5].isChecked === true) {
+    console.log(checkboxContinents[5]);
+    const OC = WorldCities.getLargestCities("OC", 25);
+    cityList.push(OC);
+    amount += 25
+  }
+  const RandomCity = Math.floor(Math.random() * amount);
+  cityList = cityList[0].concat(cityList[1], cityList[2], cityList[3], cityList[4], cityList[5]);
 
   const cities = cityList;
   const city = cities[RandomCity];
   const cityLatLng = [city.latitude, city.longitude];
   const cityName = city.country.wikipedia.split("_").join(" ");
-  
+  const proxy = "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}";
   return (
     <div className="App">
       {console.log(cityList)}
@@ -53,26 +80,39 @@ export default function MapView() {
         center={defaultCenter}
         zoom={defaultZoom}
       >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
+    <TileLayer
+    url= {proxy}
+    maxZoom = {20}
+    subdomains = {['mt0', 'mt1', 'mt2', 'mt3']}
+    />
         <Marker position={cityLatLng} icon={icon}>
           <Popup>
             Fly here <br /> Click button
           </Popup>
         </Marker>
       </MapContainer>
-      <div>
-        <h1> We believe {city.name} is a great match! </h1>
-        <p> Click to zoom to location </p>
-        <button onClick={handleOnFlyTo}>Fly to {city.name}</button>
+      <div
+      style={{
+        backgroundImage: `url("/images/light.jpeg")`,
+        backgroundPosition: "center",
+        padding: '1%',
+        paddingTop: '100px',
+        textAlign: 'center'
+      }}
+
+      >
+
+        
+        <h3 class="map-text"> We believe {city.name} is a great match for you! </h3>
+        <p class="map-text"> Click to zoom to location </p>
+        <button class='map-button' onClick={handleOnFlyTo}>Fly to {city.name}</button>
         <p />
-        <p> Country: {cityName}</p>
-        <p> Population: {numberWithCommas(city.country.population)}</p>
-        <p> Currency: {city.country.currencyName}</p>
-        <h1> Don't like {city.name}? </h1>
-        <button onClick={refreshPage}>Generate new location </button>
+        <p class="map-text"> Country: {cityName}</p>
+        <p class="map-text"> Population: {numberWithCommas(city.country.population)}</p>
+        <p class="map-text"> Currency: {city.country.currencyName}</p>
+        <h3 class="map-text"> Don't like {city.name}? </h3>
+        <button class='map-button' onClick={refreshPage}>Generate new location </button>
+        
       </div>
     </div>
   );
