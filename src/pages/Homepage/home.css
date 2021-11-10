@@ -1,28 +1,7 @@
 .home {
   width: 100%;
-  max-height: 400px;
-  height: auto;
-
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
 }
-h1, h5{
-  padding-top: 100px;
-  text-align: center;
-  color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-  font-size: 33px;
-}
-h5{
-  padding-top: 0px;
-  font-size: 18px;
-}
-
-p{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-  color: white;
-}
-
 
 .submit {
   margin: 0 auto;
@@ -70,7 +49,6 @@ video {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
 }
 
@@ -86,14 +64,6 @@ video {
   font-size: 32px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-}
-
-.hero-btns {
-  margin-top: 32px;
-}
-
-.hero-btns .btn {
-  margin: 6px;
 }
 
 .fa-play-circle {
@@ -116,17 +86,14 @@ video {
   .hero-container > p {
     font-size: 30px;
   }
-
-  .btn-mobile {
-    display: block;
-    text-decoration: none;
-  }
-
-  .btn {
-    width: 100%;
-  }
 }
 .map-text {
   color: black;
 
+}
+
+.error {
+  color:red;
+  display: flex;
+  justify-content: center;
 }

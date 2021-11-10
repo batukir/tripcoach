@@ -1,9 +1,8 @@
-import { Map as LeafletMap, GeoJSON, MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import React, { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import icon from "../../constants";
 import { useLocation } from "react-router-dom";
-import worldGeoJSON from 'geojson-world-map';
 
 const defaultCenter = [10.303418, 5.95223];
 const defaultZoom = 2;
