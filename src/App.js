@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react";
-import Home from "./pages/homepage"
+import Home from "./pages/Homepage"
 import Map from "./pages/mapview"
 import {
   BrowserRouter as Router,
