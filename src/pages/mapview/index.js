@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "leaflet/dist/leaflet.css";
 import icon from "../../constants";
 import { useLocation } from "react-router-dom";
@@ -11,7 +11,7 @@ export default function MapView() {
   const location = useLocation();
   const WorldCities = require("worldcities");
 
-  const { checkboxContinents, checkboxPreferences, peopleValue, budgetValue } =
+  const { checkboxContinents, peopleValue, budgetValue } =
     location.state;
 
   const [map, setMap] = useState(null);
@@ -28,40 +28,34 @@ export default function MapView() {
   var cityList = [];
   var amount = 0
   if (checkboxContinents[0].isChecked === true) {
-    console.log(checkboxContinents[0]);
-    const EU = WorldCities.getLargestCities("EU", 25);
+    const EU = WorldCities.getLargestCities("EU", 100);
     cityList.push(EU);
-    amount += 25
+    amount += 100
   }
   if (checkboxContinents[1].isChecked === true) {
-    console.log(checkboxContinents[1]);
-    const AS = WorldCities.getLargestCities("AS", 25);
+    const AS = WorldCities.getLargestCities("AS", 100);
     cityList.push(AS);
-    amount += 25
+    amount += 100
   }
   if (checkboxContinents[2].isChecked === true) {
-    console.log(checkboxContinents[2]);
-    const NA = WorldCities.getLargestCities("NA", 25);
+    const NA = WorldCities.getLargestCities("NA", 100);
     cityList.push(NA);
-    amount += 25
+    amount += 100
   }
   if (checkboxContinents[3].isChecked === true) {
-    console.log(checkboxContinents[3]);
-    const SA = WorldCities.getLargestCities("SA", 25);
+    const SA = WorldCities.getLargestCities("SA", 100);
     cityList.push(SA);
-    amount += 25
+    amount += 100
   }
   if (checkboxContinents[4].isChecked === true) {
-    console.log(checkboxContinents[4]);
-    const AF = WorldCities.getLargestCities("AF", 25);
+    const AF = WorldCities.getLargestCities("AF", 100);
     cityList.push(AF);
-    amount += 25
+    amount += 100
   }
   if (checkboxContinents[5].isChecked === true) {
-    console.log(checkboxContinents[5]);
-    const OC = WorldCities.getLargestCities("OC", 25);
+    const OC = WorldCities.getLargestCities("OC", 100);
     cityList.push(OC);
-    amount += 25
+    amount += 100
   }
   const RandomCity = Math.floor(Math.random() * amount);
   cityList = cityList[0].concat(cityList[1], cityList[2], cityList[3], cityList[4], cityList[5]);
@@ -74,6 +68,8 @@ export default function MapView() {
   return (
     <div className="App">
       {console.log(cityList)}
+      {console.log(peopleValue.value)}
+      {console.log(budgetValue.value)}
       <MapContainer
         whenCreated={setMap}
         center={defaultCenter}

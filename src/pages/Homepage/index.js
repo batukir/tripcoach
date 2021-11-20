@@ -10,13 +10,6 @@ export default function Home() {
     { value: "Africa", isChecked: false },
     { value: "Oceania", isChecked: false },
   ];
-  const preferences = [
-    { value: "Sightseeing", isChecked: false },
-    { value: "Beaches", isChecked: false },
-    { value: "Romantic", isChecked: false },
-    { value: "Hiking", isChecked: false },
-    { value: "Skiing", isChecked: false },
-  ];
 
   const people = [
     { value: "Just me" },
@@ -32,7 +25,6 @@ export default function Home() {
   ];
 
   const [checkboxContinents, setCheckboxContinents] = useState(continents);
-  const [checkboxPreferences, setCheckboxPreferences] = useState(preferences);
   const [selectedPeople] = useState(people);
   const [selectedBudget] = useState(budget);
   const [peopleValue, setPeopleValue] = useState({
@@ -45,25 +37,29 @@ export default function Home() {
 
   const history = useHistory();
   const [submitError, setError] = React.useState(false);
+  const selectedContinents = checkboxContinents.filter(
+    ({ isChecked }) => isChecked
+  );
+
   function onTestClick(e) {
-    checkboxContinents.forEach(element => {
-      if(element.isChecked === true){
-        history.push({
-          pathname: "/mapview",
-          state: {
-            checkboxContinents,
-            checkboxPreferences,
-            peopleValue,
-            budgetValue,
-          },
-        })
-      }
-      else {
-        e.preventDefault();
-        setErrorMessage("Error! Please fill all checkboxes")
-        setError(true)
-      }
-    });
+    if (
+      selectedContinents.length > 0 &&
+      peopleValue.value !== "" &&
+      budgetValue.value !== ""
+    ) {
+      history.push({
+        pathname: "/mapview",
+        state: {
+          checkboxContinents,
+          peopleValue,
+          budgetValue,
+        },
+      });
+    } else {
+      e.preventDefault();
+      setErrorMessage("Error! Please fill all checkboxes");
+      setError(true);
+    }
   }
   return (
     <div className="home">
@@ -100,45 +96,6 @@ export default function Home() {
                               newCheckboxes[index].isChecked = e.target.checked;
                               setCheckboxContinents(newCheckboxes);
                             }}
-                          />
-                          <label
-                            className="cursor-pointer font-italic d-block custom-control-label"
-                            htmlFor={checkbox.value}
-                          >
-                            {checkbox.value}
-                          </label>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="card shadow border-0 mb-4">
-                <div className="card-body p-5">
-                  <h2 className="h4 mb-1">
-                    Please select your activity preferences
-                  </h2>
-                  <p className="small text-muted font-italic mb-4">
-                    What kind of activities are you interested in?
-                  </p>
-                  <ul className="list-group">
-                    {checkboxPreferences.map((checkbox, index) => (
-                      <li
-                        className="list-group-item rounded-0"
-                        key={checkbox.value}
-                      >
-                        <div className="custom-control custom-checkbox">
-                          <input
-                            className="custom-control-input"
-                            id={checkbox.value}
-                            type="checkbox"
-                            onChange={(e) => {
-                              const newCheckboxes = [...checkboxPreferences];
-                              newCheckboxes[index].isChecked = e.target.checked;
-                              setCheckboxPreferences(newCheckboxes);
-                            }}
-                            checked={checkbox.isChecked}
                           />
                           <label
                             className="cursor-pointer font-italic d-block custom-control-label"
@@ -235,13 +192,31 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={onTestClick}
-              >
-                {submitError ? errorMessage && <div class='error'> {errorMessage} </div> : 'Submit'}
-              </button>
+              {submitError ? (
+                errorMessage && (
+                  <button
+                    onClick={onTestClick}
+                    style={{
+                      marginTop: "-25px",
+                      width: "100%",
+                    }}
+                    className="btn btn-danger"
+                  >
+                    {errorMessage}
+                  </button>
+                )
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={onTestClick}
+                  style={{
+                    marginTop: "-25px",
+                  }}
+                >
+                  Submit
+                </button>
+              )}
             </div>
           </div>
         </form>
