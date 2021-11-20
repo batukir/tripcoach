@@ -70,7 +70,7 @@ export default function MapView() {
   const cityLatLng = [city.latitude, city.longitude];
   const cityName = city.country.wikipedia.split("_").join(" ");
   const proxy = "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}";
-
+  
   var url = "https://www.google.com/maps/place/";
   url += city.name + ",+" + cityName;
 
@@ -107,8 +107,12 @@ export default function MapView() {
                 <li> Attractions </li>
                 <li> Hotels</li>
                 <li> Restaurants </li>
+                <li> Flights </li>
               </ul>
             </a>
+            Group Size: {peopleValue.value}
+            <br/>
+            Budget: {budgetValue.value}
           </Popup>
         </Marker>
       </MapContainer>
@@ -122,24 +126,26 @@ export default function MapView() {
         }}
       >
         <h3 class="map-text">
-          {" "}
-          We believe {city.name} is a great match for you!{" "}
+          We believe {city.name} is a great match for you!
         </h3>
-        <p class="map-text"> Click to zoom to location </p>
+        <p class="map-text"> Click the button to zoom to location </p>
         <button class="map-button" onClick={handleOnFlyTo}>
           Fly to {city.name}
         </button>
         <p />
         <p class="map-text"> Country: {cityName}</p>
         <p class="map-text">
-          {" "}
           Population: {numberWithCommas(city.country.population)}
         </p>
         <p class="map-text"> Currency: {city.country.currencyName}</p>
+        <h3 class="map-text"> If you like {city.name} </h3>
+        <p class="map-text"> Click the marker on the map to learn more </p>
         <h3 class="map-text"> Don't like {city.name}? </h3>
         <button class="map-button" onClick={refreshPage}>
-          Generate new location{" "}
+          Generate new location
         </button>
+        <p/>
+
       </div>
     </div>
   );

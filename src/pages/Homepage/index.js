@@ -198,6 +198,7 @@ export default function Home() {
                     onClick={onTestClick}
                     style={{
                       marginTop: "-25px",
+                      marginBottom: "25px",
                       width: "100%",
                     }}
                     className="btn btn-danger"
@@ -212,6 +213,7 @@ export default function Home() {
                   onClick={onTestClick}
                   style={{
                     marginTop: "-25px",
+                    marginBottom: "25px",
                   }}
                 >
                   Submit
