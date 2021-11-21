@@ -120,10 +120,9 @@ export default function MapView() {
         style={{
           backgroundImage: `url("/images/light.jpeg")`,
           backgroundPosition: "center",
-          padding: "1%",
-          paddingTop: "100px",
           textAlign: "center",
         }}
+        class="map-sidebar"
       >
         <h3 class="map-text">
           We believe {city.name} is a great match for you!

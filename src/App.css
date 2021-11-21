@@ -36,3 +36,22 @@
 li {
   font-family: "serif"
 }
+
+@media screen and (max-width: 960px) {
+  .leaflet-container {
+    height: 65vh;
+    width: 100vw;
+  }     
+  .App {
+    text-align: center;
+    display: block;
+  }
+  .map-sidebar {
+    margin-top: -70px
+  }
+}
+
+.map-sidebar {
+  padding: 1%;
+  padding-top: 100px;
+}
