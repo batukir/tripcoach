@@ -64,9 +64,29 @@ export default function Home() {
   return (
     <div className="home">
       <div className="hero-container">
-        <video src="/videos/video-1.mp4" autoPlay loop muted />
+        <div
+          className="fullscreen-video-wrap"
+          dangerouslySetInnerHTML={{
+            __html: `
+          <video 
+          loop
+          muted
+          autoPlay
+          playsinline
+        >
+        <source src="/videos/video-1.mp4" type="video/mp4">
+        </video>
+        `,
+          }}
+        ></div>
         <h1>TRIP COACH</h1>
         <p>Help us learn more about you and we will do the rest</p>
+        <p class='scroll'> Scroll Down </p>
+        <div>
+        <img class='scroll-img' src='images/scroll.gif'/>
+        </div>
+      </div>
+      <div>
       </div>
       <div className="container">
         <form>
