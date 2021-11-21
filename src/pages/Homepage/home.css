@@ -5,18 +5,17 @@
 
 .submit {
   margin: 0 auto;
-  color:black;
+  color: black;
   border-radius: 22px;
   border-color: whitesmoke;
   height: 50px;
   width: 100%;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
-.btn-primary{
+.btn-primary {
   width: 100%;
   margin-top: -50px;
-
 }
 .text-small {
   font-size: 0.9rem !important;
@@ -29,10 +28,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
-
-
 
 video {
   object-fit: cover;
@@ -59,11 +56,11 @@ video {
 }
 
 .hero-container > p {
-  padding-bottom: 10%;
+  padding-bottom: 25%;
   color: #fff;
   font-size: 32px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .fa-play-circle {
@@ -72,7 +69,6 @@ video {
 .scroll {
   position: absolute;
   bottom: 220px;
-
 }
 
 .scroll-img {
@@ -82,19 +78,19 @@ video {
 }
 
 @media screen and (max-width: 768px) {
-.scroll {
-  position: absolute;
-  bottom: -180px;
+  .scroll {
+    position: absolute;
+    bottom: -180px;
+  }
 
-}
-
-.scroll-img {
-  width: 60%;
-  height: 70%;
-  justify-content: center;
-  align-items: center;
-  margin-left: 22%;
-}
+  .scroll-img {
+    width: 60%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-left: 21%;
+  }
 }
 @media screen and (max-width: 960px) {
   .hero-container > h1 {
@@ -116,15 +112,14 @@ video {
 }
 .map-text {
   color: black;
-
 }
 .error {
-  color:red;
+  color: red;
   display: flex;
   justify-content: center;
 }
 
-  .fullscreen-video-wrap {
-    width: 100%;
-    height: 100vh;
-  }
+.fullscreen-video-wrap {
+  width: 100%;
+  height: 100vh;
+}
