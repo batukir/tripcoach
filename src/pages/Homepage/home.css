@@ -76,9 +76,25 @@ video {
 }
 
 .scroll-img {
-  margin-left: 100px;
+  margin-left: 16%;
   width: 70%;
   height: 70%;
+}
+
+@media screen and (max-width: 768px) {
+.scroll {
+  position: absolute;
+  bottom: -180px;
+
+}
+
+.scroll-img {
+  width: 60%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  margin-left: 22%;
+}
 }
 @media screen and (max-width: 960px) {
   .hero-container > h1 {
@@ -90,11 +106,12 @@ video {
 @media screen and (max-width: 768px) {
   .hero-container > h1 {
     font-size: 50px;
-    margin-top: -100px;
+    margin-top: 100px;
   }
 
   .hero-container > p {
-    font-size: 30px;
+    font-size: 15px;
+    margin-bottom: 300px;
   }
 }
 .map-text {
