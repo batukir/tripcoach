@@ -56,7 +56,7 @@ video {
 }
 
 .hero-container > p {
-  padding-bottom: 25%;
+  padding-bottom: 100px;
   color: #fff;
   font-size: 32px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -80,7 +80,7 @@ video {
 @media screen and (max-width: 768px) {
   .scroll {
     position: absolute;
-    bottom: -180px;
+    bottom: -10px;
   }
 
   .scroll-img {
@@ -106,8 +106,11 @@ video {
   }
 
   .hero-container > p {
-    font-size: 15px;
-    margin-bottom: 300px;
+    font-size: 20px;
+    margin-bottom: 220px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 .map-text {
