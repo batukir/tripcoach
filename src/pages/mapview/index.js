@@ -2,17 +2,22 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import React, { useState } from "react";
 import "leaflet/dist/leaflet.css";
 import icon from "../../constants";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
+
 
 const defaultCenter = [10.303418, 5.95223];
 const defaultZoom = 2;
 
 export default function MapView() {
+  const history = useHistory();
   const location = useLocation();
   const WorldCities = require("worldcities");
 
   const { checkboxContinents, peopleValue, budgetValue } = location.state;
 
+  function submitReview(){
+    history.push('/review')
+  }
   const [map, setMap] = useState(null);
   function handleOnFlyTo() {
     map.flyTo(cityLatLng, 15);
@@ -122,29 +127,32 @@ export default function MapView() {
           backgroundPosition: "center",
           textAlign: "center",
         }}
-        class="map-sidebar"
+        className="map-sidebar"
       >
-        <h3 class="map-text">
+        <h3 className="map-text">
           We believe {city.name} is a great match for you!
         </h3>
-        <p class="map-text"> Click the button to zoom to location </p>
-        <button class="map-button" onClick={handleOnFlyTo}>
+        <p className="map-text"> Click the button to zoom to location </p>
+        <button className="map-button" onClick={handleOnFlyTo}>
           Fly to {city.name}
         </button>
         <p />
-        <p class="map-text"> Country: {cityName}</p>
-        <p class="map-text">
+        <p className="map-text"> Country: {cityName}</p>
+        <p className="map-text">
           Population: {numberWithCommas(city.country.population)}
         </p>
-        <p class="map-text"> Currency: {city.country.currencyName}</p>
-        <h3 class="map-text"> If you like {city.name} </h3>
-        <p class="map-text"> Click the marker on the map to learn more </p>
-        <h3 class="map-text"> Don't like {city.name}? </h3>
-        <button class="map-button" onClick={refreshPage}>
+        <p className="map-text"> Currency: {city.country.currencyName}</p>
+        <h3 className="map-text"> If you like {city.name} </h3>
+        <p className="map-text"> Click the marker on the map to learn more </p>
+        <h3 className="map-text"> Don't like {city.name}? </h3>
+        <button className="map-button" onClick={refreshPage}>
           Generate new location
         </button>
         <p/>
-
+        <h3> Like this site? </h3> 
+        <button className="map-button" onClick={submitReview} >
+          Leave a review
+        </button>
       </div>
     </div>
   );

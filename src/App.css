@@ -55,3 +55,95 @@ li {
   padding: 1%;
   padding-top: 100px;
 }
+
+.cardcontainer {
+  margin-top: 100px;
+  width: 80vw;
+  height: 350px;
+  background-color: lightblue;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.3s
+}
+
+.cardcontainer:hover {
+  box-shadow: 0 0 45px gray
+}
+
+.review-header {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.label-header {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.input-size-user {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.input-size-review {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  height: 100px;
+  width: 400px;
+}
+
+.submit-review {
+  display: flex;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #555555;; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.review-section {
+  margin-top: 40px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.review-card {
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 5px auto;
+  margin-top: 30px;
+  height: 170px;
+}
+
+.review-font {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#updateInput {
+  width: 180px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.crud-button {
+  background-color: #555555;; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}

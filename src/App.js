@@ -2,6 +2,7 @@ import './App.css';
 import React from "react";
 import Home from "./pages/Homepage"
 import Map from "./pages/mapview"
+import Review from "./pages/review"
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route path="/mapview">
             <Map />
+          </Route>
+          <Route path="/review">
+            <Review />
           </Route>
         </Switch>
       </div>

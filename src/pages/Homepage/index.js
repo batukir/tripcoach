@@ -81,9 +81,9 @@ export default function Home() {
         ></div>
         <h1>TRIP COACH</h1>
         <p>Help us learn more about you and we will do the rest</p>
-        <p class='scroll'> Scroll Down </p>
+        <p className='scroll'> Scroll Down </p>
         <div>
-        <img class='scroll-img' src='images/scroll.gif'/>
+        <img className='scroll-img' src='images/scroll.gif'/>
         </div>
       </div>
       <div>
